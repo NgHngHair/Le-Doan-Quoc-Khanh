@@ -75,6 +75,46 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+  /* Thêm hiệu ứng đặc biệt */
+    .special-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 2rem;
+    }
+    .special-link a {
+      color: #0ff0fc;
+      font-size: 1.5rem;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border: 3px solid #ff00c8;
+      border-radius: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px #ff00c8, 0 0 30px #0ff0fc;
+      transition: all 0.4s;
+      animation: glow 2s infinite alternate;
+    }
+    .special-link a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00c8, #0ff0fc);
+      clip-path: circle(0% at 50% 50%);
+      transition: clip-path 0.5s ease-in-out;
+      z-index: -1;
+    }
+    .special-link a:hover::before {
+      clip-path: circle(150% at 50% 50%);
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px #ff00c8, 0 0 30px #0ff0fc; }
+      100% { box-shadow: 0 0 40px #ff00c8, 0 0 60px #0ff0fc; }
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -117,8 +157,12 @@
       <p class="text-lg italic">Trở thành doanh nhân trẻ để có thể nuôi sống cha mẹ, cống hiến mình cho đất nước để biến nó thành cường quốc trên thế giới và cuối cùng trở thành một tồn tại mà ai ai nghe đến cũng phải khiếp sợ, thán phục.</p>
     </section>
   </main>
+  <div class="special-link">
+    <a href="https://nghnghair.github.io/nhom-5-ae-siu-nhan/" target="_blank">Khám Phá Nhóm 5 AE Siêu Nhân</a>
+  </div>
   <footer class="p-6 text-center text-lg font-medium border-t-4 border-pink-500">
     &copy; 2025 [Lê Đoàn Quốc Khánh] - My Dreams.
   </footer>
 </body>
 </html>
+
