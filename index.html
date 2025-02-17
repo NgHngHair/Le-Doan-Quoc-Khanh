@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    body {
+      background: url('cyberpunk_gaming_background.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #0ff0fc;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .moving-text {
+      white-space: nowrap;
+      overflow: hidden;
+      animation: cyber 20s linear infinite;
+      font-size: 3rem;
+      text-shadow: 0 0 20px #0ff0fc, 0 0 40px #ff00c8;
+      text-align: center;
+    }
+    @keyframes cyber {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom: 3px solid #ff00c8;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem;
+      box-shadow: 0 0 40px #0ff0fc, 0 0 60px #ff00c8;
+      border-radius: 0; /* Bỏ bo góc */
+    }
+    nav button {
+      background: transparent;
+      color: #0ff0fc;
+      border: 2px solid #ff00c8;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.25rem;
+    }
+    nav button:hover {
+      background: linear-gradient(45deg, #ff00c8, #0ff0fc);
+      color: #000;
+      box-shadow: 0 0 20px #ff00c8, 0 0 30px #0ff0fc;
+      transform: scale(1.1);
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+      border: 3px solid #ff00c8;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 40px #0ff0fc, 0 0 60px #ff00c8;
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .tab-active {
+      display: block;
+    }
+    .profile-header {
+      border: 3px solid #ff00c8;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 40px #0ff0fc, 0 0 60px #ff00c8;
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('nav button');
+      const contents = document.querySelectorAll('.tab-content');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          contents.forEach(content => content.classList.remove('tab-active'));
+          document.getElementById(button.dataset.target).classList.add('tab-active');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="py-6 border-b-4 border-pink-500 bg-black bg-opacity-70 text-center">
+    <p class="moving-text">Chào mừng đến với profile của tôi</p>
+  </div>
+  <main class="flex flex-col items-center justify-center min-h-screen p-8 space-y-8">
+    <section class="w-full md:w-3/4 flex flex-col items-center profile-header">
+      <img src="your_image.jpg" alt="Ảnh của bạn" class="w-40 h-40 object-cover rounded-full border-4 border-pink-400 shadow-2xl mb-4" />
+      <h1 class="text-6xl font-bold mb-2 text-pink-300">[Lê Đoàn Quốc Khánh]</h1>
+      <h2 class="text-2xl text-pink-200 mb-4">[Lớp 12C5B - Trường THPT Chuyên Hùng Vương]</h2>
+    </section>
+    <nav>
+      <button data-target="hobbies">Sở Thích</button>
+      <button data-target="favorites">Môn Học Yêu Thích</button>
+      <button data-target="dreams">Ước Mơ</button>
+    </nav>
+    <section id="hobbies" class="tab-content">
+      <h2 class="text-3xl font-semibold text-pink-200 mb-2">Sở Thích</h2>
+      <p class="text-lg italic">Đam mê game thế giới mở, khám phá công nghệ AI và xem phim với bạn bè.</p>
+    </section>
+    <section id="favorites" class="tab-content">
+      <h2 class="text-3xl font-semibold text-pink-200 mb-2">Môn Học Yêu Thích</h2>
+      <p class="text-lg italic">Tin học, Toán, Lý, Hóa - Bệ phóng cho đam mê công nghệ và sáng tạo.</p>
+    </section>
+    <section id="dreams" class="tab-content">
+      <h2 class="text-3xl font-semibold text-pink-200 mb-2">Ước Mơ</h2>
+      <p class="text-lg italic">Trở thành doanh nhân trẻ để có thể nuôi sống cha mẹ, cống hiến mình cho đất nước để biến nó thành cường quốc trên thế giới và cuối cùng trở thành một tồn tại mà ai ai nghe đến cũng phải khiếp sợ, thán phục.</p>
+    </section>
+  </main>
+  <footer class="p-6 text-center text-lg font-medium border-t-4 border-pink-500">
+    &copy; 2025 [Lê Đoàn Quốc Khánh] - My Dreams.
+  </footer>
+</body>
+</html>
